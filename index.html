@@ -4,8 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>おもしろ3文字</title>
+    <style>
+        #omoshiro {
+            border: none;
+            outline: none;
+            background: transparent;
+            cursor: pointer;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            color: #f0eeee;
+            background-color: #b53535;
+            padding-top: 9px;
+            padding-left: 18px;
+            padding-right: 18px;
+            padding-bottom: 9px;
+            border:1px solid #882222;
+            background:-moz-linear-gradient(rgba(165, 16, 16, 0.5), rgb(168, 54, 54, 1));
+            background:-webkit-gradient(linear, 100% 0%, 100% 100%, from(rgba(165, 16, 16, 0.5)), to(rgba(168, 54, 54, 1)));
+            box-shadow:1px 2px 2px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.5) inset, 0px -1px 0px rgba(255, 255, 255, 0.2) inset;
+        }
+        #omoshiro:hover {
+            background:-moz-linear-gradient(rgba(165, 16, 16, 0.43), rgba(168, 54, 54, 0.93));
+            background:-webkit-gradient(linear, 100% 0%, 100% 100%, from(rgba(165, 16, 16, 0.43)), to(rgba(168, 54, 54, 0.93)));
+        }
+        #sanmoji {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            height: 30px;
+            letter-spacing: 6px;
+            font-weight: bold;
+            font-size: 26px;
+        }
+
+    </style>
 </head>
 <body>
-    おもしろ3文字
+    <div id="sanmoji">
+
+    </div>
+    <button id="omoshiro">おもしろ3文字</button>
+    <script>
+        const san = 3;
+        const button = document.getElementById('omoshiro');
+        const view = document.getElementById('sanmoji');
+
+        const char = [
+            'あ','い','う','え','お',
+            'か','き','く','け','こ',
+            'さ','し','す','せ','そ',
+            'た','ち','つ','て','と',
+            'な','に','ぬ','ね','の',
+            'は','ひ','ふ','へ','ほ',
+            'ま','み','む','め','も',
+            'や','ゆ','よ',
+            'わ','を','ん',
+            'が','ぎ','ぐ','げ','ご',
+            'ざ','じ','ず','ぜ','ぞ',
+            'だ','ぢ','づ','で','ど',
+            'ば','び','ぶ','べ','ぼ',
+            'ぱ','ぽ','ぴ','ぺ','ぽ'
+        ];
+
+        button.addEventListener('click', () => {
+            let sanmoji = '';
+            for (let index = 1; index <= san; index++) {
+                const moji = char[Math.floor(Math.random() * char.length)];
+                sanmoji += moji;
+            }
+            view.innerHTML = sanmoji;
+        });
+    </script>
 </body>
 </html>
